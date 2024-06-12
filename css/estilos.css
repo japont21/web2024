@@ -1,0 +1,111 @@
+.contenedor {
+    align-items: center;
+    border: solid 0.1em;
+    display: flex;
+    height: 500px;
+    justify-content: space-around;
+}
+
+.contenedor div {
+    border: solid 0.1em;
+    filter: invert(1);
+    height: 400px;
+    width: 20%;
+    transition: all linear 0.5s;
+}
+
+.contenedor div:hover {
+    background-size: 100% 100%;
+    transform: scaleX(-1);
+    filter: invert(0);
+}
+
+.cupon {
+    display: none;
+    font-size: 48px;
+    font-style: italic;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.hija1 {
+    background: url(foto1.jpg);
+    background-size: 100% 100%;
+}
+
+.hija2 {
+    background: url(foto2.jpg);
+    background-size: 100% 100%;
+}
+
+.hija3 {
+    background: url(foto3.jpg);
+    background-size: 100% 100%;
+}
+
+.hija4 {
+    background: url(foto4.jpg);
+    background-size: 100% 100%;
+}
+
+.imprimir {
+    background: orange url("impresora.webp") no-repeat 20px 5px;
+    background-size: 40px 40px;
+    border-radius: 1em;
+    box-shadow: 0.1em 0.2em 0.3em rgba(0, 0, 0, 0.5);
+    display: block;
+    font-style: italic;
+    font-size: 24px;
+    margin: 1em auto;
+    padding: 0.4em;
+    width: 40%;
+}
+
+.imprimir:hover {
+    cursor: pointer;
+}
+
+@media print {
+    .hija1,.hija3{
+        display: none;
+    }
+    .contenedor {
+        background-color: orange;
+        flex-direction: row;
+    }
+    .contenedor div{
+        filter: none;
+        background-size: 100% 100%;
+        width: 50%;
+    }
+    .cupon {
+        display: block;
+    }
+    .imprimir {
+        display: none;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    body {
+        background: rgb(239, 217, 115);
+    }
+}
+
+@media screen and (orientation:portrait) {
+    body {
+        background: lightblue;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .contenedor {
+        flex-direction: column;
+        height: auto;
+    }
+    .contenedor div {
+        filter: invert(0);
+        height: 400px;
+        width: 100%;
+    }
+}
